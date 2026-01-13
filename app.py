@@ -141,7 +141,7 @@ def triggers_today(r: Row, ref: date) -> bool:
 def deadlines_ahead_list(r: Row, ref: date) -> List[date]:
     """All deadlines still ahead (>= today) among the two deadline columns."""
     dls: List[date] = []
-    for d in (r.d1, r.d2):
+    for d in (r.d1, r.d2, r.post_date):
         if d and d >= ref:
             dls.append(d)
     return sorted(set(dls))
